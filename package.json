@@ -1,7 +1,6 @@
 {
   "name": "i18n-poc",
   "version": "0.0.1",
-  "description": "",
   "main": "src/bootstrap.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,5 +8,16 @@
     "prepackage": "node utility.js"
   },
   "author": "mediafreakch",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "i18njs": "^1.0.0",
+    "handlebars": "^4.0.4"
+  },
+  "devDependencies": {
+      "gulp-merge-json": "^0.1.0",
+      "gulp-wrap": "^0.11.0",
+      "brfs": "^1.4.1",
+      "browserify": "^11.2.0",
+      "gulp": "^3.9.0"
+  }
 }
