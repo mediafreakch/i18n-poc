@@ -8465,39 +8465,65 @@ module.exports = amdefine;
 }).call(this);
 
 },{}],47:[function(require,module,exports){
-(function (__dirname){
-var fs= require('fs'),
-    handlebars = require('handlebars'),
-    view = fs.readFileSync(__dirname + '/view.hbs', 'utf8'),
-    i18n = require('i18njs'),
+// kick-off app
+var _ = require('app'),
+    a = require('another-component'),
+    b = require('my-component');
+
+a.render();
+b.render();
+
+},{"another-component":48,"app":49,"my-component":50}],48:[function(require,module,exports){
+
+var handlebars = require('handlebars'),
+    view = "<span>{{t \"button.cancel\" }}</span>\n",
     template,
     html;
-
-// register Handlebars View Helper. Could be moved to a separate component?!
-handlebars.registerHelper('t', function(str, options, context) {
- return (i18n ? i18n(str, options, context) : str);
-});
 
 // Precompile (could happen on the ServerSide)
 template = handlebars.compile(view);
 
-// adding some translations
-// could be moved to separate translation files
-i18n.translator.add({
-  values:{
-    "submit.action": "Absenden",
-    "%n comments":[
-      [0, 0, "Aucun des respondes"],
-      [1, 1, "Une respond"],
-      [2, null, "%n respondes"]
-    ]
-  }
+module.exports = {
+    render: function(data) {
+        var html = template(data);
+        document.getElementById('demo').innerHTML += html;
+    }
+};
+
+},{"handlebars":33}],49:[function(require,module,exports){
+(function (global){
+// setup (factory)
+var handlebars = require('handlebars'),
+    i18n = require('i18njs');
+
+// register Handlebars View Helper.
+handlebars.registerHelper('t', function(str, options, context) {
+    return (i18n ? i18n(str, options, context) : str);
 });
 
-// View compilation with a context
-html = template({ title: 'bar', comments: [0,1,2] });
+// import translations
+if (global.APP && global.APP.translations) {
+    i18n.translator.add(global.APP.translations);
+}
 
-console.log(html);
+module.exports = {};
 
-}).call(this,"/src")
-},{"fs":1,"handlebars":33,"i18njs":46}]},{},[47]);
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"handlebars":33,"i18njs":46}],50:[function(require,module,exports){
+
+var handlebars = require('handlebars'),
+    view = "<a href=\"#\">{{t \"button.press\" }}</a>\n",
+    template,
+    html;
+
+// Precompile (could happen on the ServerSide)
+template = handlebars.compile(view);
+
+module.exports = {
+    render: function(data) {
+        var html = template(data);
+        document.getElementById('demo').innerHTML += html;
+    }
+};
+
+},{"handlebars":33}]},{},[47]);
