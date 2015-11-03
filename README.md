@@ -4,6 +4,10 @@
 2. do `npm install`
 3. run `npm run package`
 
+Then open `index.html` in your browser and see the result.
+
+Change the `index.html` file and include another locale from the dist directory (example `dist/fr.js`).
+
 # How it works
 
 1. `npm run package` will browserify your internal modules (located at `/src/node_modules`) and run `utility.js`. The latter will collect all locales for DE and FR separately and bundle them into a file each. They'll be exposed as a `window` global.
