@@ -23,3 +23,4 @@ Change the `index.html` file and include another locale from the dist directory 
 - don't expose locales as a window global. Using browserify -r -x args instead?
 - make `utility.js` a component with a binary (so that others can simply call the binary inside their npm scripts)
 - wait for roddeh/i18njs#2 to take i18njs from npmjs.org
+- The present approach makes published packages hard to consume. Try another way, eg. using browserify-transforms / parcelify.
