@@ -7,5 +7,5 @@ a.render();
 b.render({
     name: 'Joris',
     lastname: 'Calvat',
-    apples: [0,1,2]
+    apples: [0]
 });
