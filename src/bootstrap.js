@@ -4,4 +4,8 @@ var _ = require('app'),
     b = require('my-component');
 
 a.render();
-b.render();
+b.render({
+    name: 'Joris',
+    lastname: 'Calvat',
+    apples: [0,1,2]
+});
