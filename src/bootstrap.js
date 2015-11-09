@@ -5,7 +5,7 @@ var _ = require('app'),
 
 a.render();
 b.render({
-    name: 'Joris',
-    lastname: 'Calvat',
+    name: 'John',
+    lastname: 'Hero',
     apples: [0]
 });
